@@ -78,3 +78,8 @@
     }
   }
 }
+
+.active {
+  transition: 0.5s;
+  color: var(--Main-color);
+}

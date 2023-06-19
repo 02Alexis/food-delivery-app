@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutActionAsync } from "../../redux/actions/userActions";
-import "./Home.scss"
+import "./Home.scss";
 import DashboardFooter from "../../components/dashboardFooter/DashboardFooter";
 
 function Home() {
@@ -11,11 +11,13 @@ function Home() {
   console.log("usuario ingresado ", user);
 
   return (
-    <div>
-      <h1>home</h1>
-      <h2 className="dashboard__name">{user?.name}</h2>
+    <>
+      <div className="home">
+        <h1>home</h1>
+        <h2 className="dashboard__name">{user?.name}</h2>
+      </div>
       <DashboardFooter />
-    </div>
+    </>
   );
 }
 

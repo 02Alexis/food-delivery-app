@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   MdOutlineHome,
@@ -6,9 +6,11 @@ import {
   MdOutlineHistory,
   MdOutlinePersonOutline,
 } from "react-icons/md";
+import classnames from "classnames";
 import "./DashboardFooter.scss";
 
 const DashboardFooter = () => {
+    const [activeIcon, setActiveIcon] = React.useState("");
   const navigate = useNavigate();
 
   const handleHomeClick = () => {
@@ -17,10 +19,30 @@ const DashboardFooter = () => {
 
   const handleSearchClick = () => {
     // navigate("/search"); aqui ira la accion para ir a la pagina de busqueda, que no se te olvide
+    navigate("/search");
   };
+  const handleHistoryClick = () => {
+    navigate("/history");
+  };
+
   const handleDashboardClick = () => {
     navigate("/dashboard");
   };
+
+  
+  useEffect(() => {
+    // Lógica para establecer el icono activo cuando cambia la ruta actual
+    const currentPath = window.location.pathname;
+    if (currentPath === "/home") {
+      setActiveIcon("home");
+    } else if (currentPath === "/search") {
+      setActiveIcon("search");
+    } else if (currentPath === "/dashboard") {
+      setActiveIcon("dashboard");
+    } else if (currentPath === "/history") {
+        setActiveIcon("history");
+    }
+  }, []);
 
   return (
     <>
@@ -28,21 +50,21 @@ const DashboardFooter = () => {
         <div className="footerHome">
           <MdOutlineHome
             onClick={handleHomeClick}
-            className="footerHome__iconHome"
+            className={classnames("footerHome__iconHome", { active: activeIcon === "home"})}
           />
         </div>
 
         <div className="footerSearch">
-          <MdSearch className="footerSearch__iconSearch" />
+          <MdSearch className={classnames("footerSearch__iconSearch",  {active: activeIcon === "search" })} />
         </div>
 
         <div className="footerHistory">
-          <MdOutlineHistory className="footerHistory__iconHistory" />
+          <MdOutlineHistory className={classnames("footerHistory__iconHistory", {active: activeIcon === "history"})} />
         </div>
 
         <div className="footerPerson">
           <MdOutlinePersonOutline 
-          onClick={handleDashboardClick}className="footerPerson__iconPerson" />
+          onClick={handleDashboardClick} className={classnames("footerPerson__iconPerson", { active: activeIcon === "dashboard" })} />
         </div>
       </footer>
     </>
