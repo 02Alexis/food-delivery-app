@@ -1,9 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import userReducer from "../reducers/userReducer";
+import { restaurantsReducer } from "../reducers/restaurantsReducers";
 
 const reducer = {
   user: userReducer,
+  restaurantsStore: restaurantsReducer,
 };
+
 const store = configureStore({
   reducer,
   devTool: process.env.NODE_ENV !== "production",
@@ -12,4 +15,5 @@ const store = configureStore({
       serializableCheck: false,
     }),
 });
+
 export default store;
