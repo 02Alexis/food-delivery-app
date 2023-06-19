@@ -1,12 +1,13 @@
 .footer {
   position: relative;
   top: 110px;
+  margin-left: -10px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 10px 15px 15px 20px;
+  padding: 20px;
   background: white;
   transition: .5s;
 }
