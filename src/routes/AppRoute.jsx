@@ -10,6 +10,7 @@ import PrivateRoute from "./PrivateRoute";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../Firebase/firebaseConfig";
 import { loginActionSync } from "../redux/actions/userActions";
+import Dashboard from "../pages/dashboard/Dashboard";
 
 function AppRoute() {
   const [isLoggedIn, setIsLoggedIn] = useState(null);
@@ -58,6 +59,7 @@ function AppRoute() {
           </Route>
           <Route element={<PrivateRoute isAutentication={isLoggedIn} />}>
             <Route path="home" element={<Home />} />
+            <Route path="dashboard" element={<Dashboard />} />
           </Route>
         </Route>
       </Routes>

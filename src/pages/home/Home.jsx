@@ -1,6 +1,8 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutActionAsync } from "../../redux/actions/userActions";
+import "./Home.scss"
+import DashboardFooter from "../../components/dashboardFooter/DashboardFooter";
 
 function Home() {
   const dispatch = useDispatch();
@@ -11,15 +13,8 @@ function Home() {
   return (
     <div>
       <h1>home</h1>
-
-      <div>
-        <img src={user?.avatar} alt={user?.name} />
-        <h1>{user?.name}</h1>
-      </div>
-
-      <button onClick={() => dispatch(logoutActionAsync())}>
-        Cerrar Sesion
-      </button>
+      <h2 className="dashboard__name">{user?.name}</h2>
+      <DashboardFooter />
     </div>
   );
 }

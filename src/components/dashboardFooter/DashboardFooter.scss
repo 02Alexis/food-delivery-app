@@ -1,0 +1,80 @@
+.footer {
+  position: relative;
+  top: 110px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px 15px 15px 20px;
+  background: white;
+  transition: .5s;
+}
+.footerHome {
+  margin-left: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  justify-content: space-between;
+  align-items: center;
+  &__iconHome {
+    color: var(--Dark-color);
+    font-size: 30px;
+    &:hover {
+      transition: 0.5s;
+      cursor: pointer;
+      color: var(--Main-color);
+    }
+  }
+}
+
+.footerSearch {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 5px;
+  align-items: center;
+  &__iconSearch {
+    font-size: 30px;
+    color: var(--Dark-color);
+    &:hover {
+      transition: 0.5s;
+      cursor: pointer;
+      color: var(--Main-color);
+    }
+  }
+}
+
+.footerHistory {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 5px;
+  align-items: center;
+  &__iconHistory {
+    font-size: 30px;
+    color: var(--Dark-color);
+    &:hover {
+      transition: 0.5s;
+      cursor: pointer;
+      color: var(--Main-color);
+    }
+  }
+}
+
+.footerPerson {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 5px;
+  align-items: center;
+  &__iconPerson {
+    font-size: 30px;
+    color: var(--Dark-color);
+    &:hover {
+      transition: 0.5s;
+      cursor: pointer;
+      color: var(--Main-color);
+    }
+  }
+}

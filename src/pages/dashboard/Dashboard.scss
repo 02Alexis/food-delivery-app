@@ -1,0 +1,124 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  background: var(--Bg-gradient);
+  transition: 0.5s;
+
+  &__image {
+    transition: 0.5s;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  &__name {
+    margin-top: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--Dark-color);
+  }
+
+  &__edit {
+    transition: 0.5s;
+    border-radius: 10px;
+    width: 100%;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 10px;
+    background: var(--Complementary-color);
+    a {
+      transition: 0.5s;
+      font-family: "Roboto";
+      font-style: normal;
+      font-weight: 400;
+      text-decoration: none;
+      color: var(--Dark-color);
+      font-size: 14px;
+      line-height: 16px;
+      text-align: start;
+      width: 89px;
+      display: flex;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  &__logout {
+    transition: 0.5s;
+    border-radius: 10px;
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 10px;
+    background: var(--Complementary-color);
+    button {
+      transition: 0.5s;
+      color: var(--Dark-color);
+      border: none;
+      background: transparent;
+      font-size: 14px;
+      line-height: 16px;
+      text-align: start;
+      cursor: pointer;
+      width: 50px;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  &__payment {
+    transition: 0.5s;
+    border-radius: 10px;
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 10px;
+    background: var(--Complementary-color);
+    a {
+      transition: 0.5s;
+      text-decoration: none;
+      color: var(--Dark-color);
+      font-size: 14px;
+      line-height: 16px;
+      text-align: start;
+      width: 89px;
+      display: flex;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  &__language {
+    transition: 0.5s;
+    border-radius: 10px;
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 10px;
+    background: var(--Complementary-color);
+    a {
+      transition: 0.5s;
+      text-decoration: none;
+      color: var(--Dark-color);
+      font-size: 14px;
+      line-height: 16px;
+      text-align: start;
+      width: 89px;
+      display: flex;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
