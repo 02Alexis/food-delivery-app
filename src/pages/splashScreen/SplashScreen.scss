@@ -1,0 +1,25 @@
+.splashScreen{
+    background: var(--Main-color);
+    min-height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px ;
+    margin-top: -80px;
+    .center{
+        margin:auto;
+        display:block;
+        width: 35%;
+        transition: .5s;
+    }
+}
+
+@media (max-width: 700px) {
+    .splashScreen{
+
+        .center {
+            transition: .5s;
+            width: 35%;
+        }
+    }
+  }

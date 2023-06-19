@@ -110,7 +110,6 @@ function UserRegister() {
             {...register("avatar")}
           />
           <p>{errors.avatar?.message}</p>
-          <label>Imagen:</label>
         </div>
 
         <div className="axel">

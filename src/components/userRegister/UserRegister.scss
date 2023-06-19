@@ -1,14 +1,17 @@
 .register {
   padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 
   .container {
     width: 100%;
     box-sizing: border-box;
     h1 {
-        color: var(--Dark-color);
-      margin-bottom: 35px;
-      margin-top: -5%;
-      font-size: 20px;
+      color: var(--Dark-color);
+    font-weight: 700;
+    margin-bottom: 45px;
     }
     &__input-field {
       display: flex;
@@ -56,7 +59,7 @@
     
     .axel{
         position: absolute;
-        top: 90%;
+        top: 100%;
         right: 10px;
         left: 10px;
         &__submit {

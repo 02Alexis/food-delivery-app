@@ -11,6 +11,8 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../Firebase/firebaseConfig";
 import { loginActionSync } from "../redux/actions/userActions";
 import Dashboard from "../pages/dashboard/Dashboard";
+import SplashScreen from "../pages/splashScreen/SplashScreen";
+import Search from "../pages/search/Search";
 
 function AppRoute() {
   const [isLoggedIn, setIsLoggedIn] = useState(null);
@@ -54,11 +56,13 @@ function AppRoute() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route element={<PublicRoute isAutentication={isLoggedIn} />}>
+            <Route path="splashScreen" element={<SplashScreen />} />
             <Route index element={<Login />} />
             <Route path="register" element={<Register />} />
           </Route>
           <Route element={<PrivateRoute isAutentication={isLoggedIn} />}>
             <Route path="home" element={<Home />} />
+            <Route path="search" element={<Search />} />
             <Route path="dashboard" element={<Dashboard />} />
           </Route>
         </Route>

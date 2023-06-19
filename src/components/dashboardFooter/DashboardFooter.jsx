@@ -18,7 +18,7 @@ const DashboardFooter = () => {
   };
 
   const handleSearchClick = () => {
-    // navigate("/search"); aqui ira la accion para ir a la pagina de busqueda, que no se te olvide
+    // navigate("/search"); 
     navigate("/search");
   };
   const handleHistoryClick = () => {
@@ -55,7 +55,9 @@ const DashboardFooter = () => {
         </div>
 
         <div className="footerSearch">
-          <MdSearch className={classnames("footerSearch__iconSearch",  {active: activeIcon === "search" })} />
+          <MdSearch
+            onClick={handleSearchClick}
+            className={classnames("footerSearch__iconSearch",  {active: activeIcon === "search" })} />
         </div>
 
         <div className="footerHistory">
