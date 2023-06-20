@@ -14,6 +14,7 @@ import Dashboard from "../pages/dashboard/Dashboard";
 import SplashScreen from "../pages/splashScreen/SplashScreen";
 import Search from "../pages/search/Search";
 import RestaurantPage from "../pages/restaurantPage/RestaurantPage";
+import OrdersHistory from "../pages/ordersHistory/OrdersHistory";
 
 function AppRoute() {
   const [isLoggedIn, setIsLoggedIn] = useState(null);
@@ -63,8 +64,9 @@ function AppRoute() {
           </Route>
           <Route element={<PrivateRoute isAutentication={isLoggedIn} />}>
             <Route path="home" element={<Home />} />
-            <Route path="search" element={<Search />} />
             <Route path="restaurant/:nombre" element={<RestaurantPage />} />
+            <Route path="search" element={<Search />} />
+            <Route path="ordersHistory" element={<OrdersHistory />} />
             <Route path="dashboard" element={<Dashboard />} />
           </Route>
         </Route>
