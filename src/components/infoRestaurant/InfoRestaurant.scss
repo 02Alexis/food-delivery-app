@@ -1,0 +1,12 @@
+.infoRestaurant {
+  padding: 10px;
+  &__logo {
+    display: flex;
+    align-items: center;
+    transition: 0.5s;
+    .image {
+      display: block;
+      margin: auto;
+    }
+  }
+}

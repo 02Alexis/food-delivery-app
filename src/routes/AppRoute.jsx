@@ -13,6 +13,7 @@ import { loginActionSync } from "../redux/actions/userActions";
 import Dashboard from "../pages/dashboard/Dashboard";
 import SplashScreen from "../pages/splashScreen/SplashScreen";
 import Search from "../pages/search/Search";
+import RestaurantPage from "../pages/restaurantPage/RestaurantPage";
 
 function AppRoute() {
   const [isLoggedIn, setIsLoggedIn] = useState(null);
@@ -63,6 +64,7 @@ function AppRoute() {
           <Route element={<PrivateRoute isAutentication={isLoggedIn} />}>
             <Route path="home" element={<Home />} />
             <Route path="search" element={<Search />} />
+            <Route path="restaurant/:nombre" element={<RestaurantPage />} />
             <Route path="dashboard" element={<Dashboard />} />
           </Route>
         </Route>

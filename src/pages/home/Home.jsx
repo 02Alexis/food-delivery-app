@@ -4,6 +4,7 @@ import { actionGetRestaurantsAsync } from "../../redux/actions/restaurantActions
 import "./Home.scss";
 import DashboardFooter from "../../components/dashboardFooter/DashboardFooter";
 import { MdStarRate } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 function Home() {
   const dispatch = useDispatch();
@@ -20,11 +21,13 @@ function Home() {
         {restaurants && restaurants.length ? (
           restaurants.map((restaurant, index) => (
             <div key={index} className="container">
+              <Link to={`/restaurant/${restaurant.nombre}`}>
               <img
                 className="container__img"
                 src={restaurant.imagen}
                 alt={restaurant.nombre}
               />
+              </Link>
               <div className="details">
                 <p className="details__name">{restaurant.nombre}</p>
                 <div className="details__start">
