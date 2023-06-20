@@ -5,6 +5,8 @@ import "./Home.scss";
 import DashboardFooter from "../../components/dashboardFooter/DashboardFooter";
 import { MdStarRate } from "react-icons/md";
 import { Link } from "react-router-dom";
+import Ubication from "../../components/ubication/Ubication";
+import FilterFoods from "../../components/filterFoods/FilterFoods";
 
 function Home() {
   const dispatch = useDispatch();
@@ -18,6 +20,8 @@ function Home() {
   return (
     <>
       <div className="home">
+      <Ubication />
+      <FilterFoods />
         {restaurants && restaurants.length ? (
           restaurants.map((restaurant, index) => (
             <div key={index} className="container">

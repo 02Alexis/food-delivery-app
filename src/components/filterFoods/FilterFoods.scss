@@ -1,0 +1,35 @@
+.filterFoods {
+  margin-top: 20px;
+  &__title {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: var(--Dark-color);
+  }
+  &__carousel {
+    display: flex;
+    overflow: hidden;
+    width: 375px;
+    .yelow{
+        background: var(--Main-color);
+    }
+    button {
+        cursor: pointer;
+      background: var(--Complementary-color);
+      color: var(--Dark-color);
+      font-style: normal;
+      font-weight: 400;
+      font-size: 10px;
+      line-height: 12px;
+
+      border: none;
+      border-radius: 5px;
+      flex: 0 0 auto;
+      width: 100px;
+      height: 40px;
+      margin-right: 10px;
+    }
+  }
+}

@@ -1,11 +1,11 @@
-
-
 .home{
-    transition: .5s;
+    transition: .5s;min-height: 100vh;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 10px;
 
     .container{
+    margin-left: -20px;
         display: flex;
         align-items: center;
         transition: .5s;
@@ -15,6 +15,7 @@
             padding: 30px;
             width: 200px;
             height: 150px;
+            object-fit: cover;
             transition: .5s;
             border: none;
             border-radius: 20px 20px 50% 20px / 20px 20px 80% 20px;

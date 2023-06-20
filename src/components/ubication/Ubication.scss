@@ -1,0 +1,32 @@
+.ubication {
+  display: flex;
+  align-items: center;
+  &__iconLocation {
+    margin-right: 10px;
+    font-size: 40px;
+    color: var(--Main-color);
+  }
+  &__text {
+    display: flex;
+    flex-direction: column;
+    .title {
+      font-family: "Roboto";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 10px;
+      line-height: 12px;
+      color: var(--Main-color);
+    }
+    .direccion {
+      font-family: "Roboto";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 16px;
+      color: var(--Dark-color);
+      &__iconArrowDow{
+        color: var(--Dark-color);
+      }
+    }
+  }
+}
