@@ -5,7 +5,6 @@ import DashboardFooter from "../../components/dashboardFooter/DashboardFooter";
 function OrdersHistory() {
   return (
     <>
-      <div></div>
       <DashboardFooter />
     </>
   );

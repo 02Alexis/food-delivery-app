@@ -66,7 +66,7 @@ function AppRoute() {
             <Route path="home" element={<Home />} />
             <Route path="restaurant/:nombre" element={<RestaurantPage />} />
             <Route path="search" element={<Search />} />
-            <Route path="ordersHistory" element={<OrdersHistory />} />
+            <Route path="history" element={<OrdersHistory />} />
             <Route path="dashboard" element={<Dashboard />} />
           </Route>
         </Route>

@@ -61,7 +61,8 @@ const DashboardFooter = () => {
         </div>
 
         <div className="footerHistory">
-          <MdOutlineHistory className={classnames("footerHistory__iconHistory", {active: activeIcon === "history"})} />
+          <MdOutlineHistory
+          onClick={handleHistoryClick} className={classnames("footerHistory__iconHistory", {active: activeIcon === "history"})} />
         </div>
 
         <div className="footerPerson">
