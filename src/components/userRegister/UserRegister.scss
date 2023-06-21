@@ -9,20 +9,24 @@
     width: 100%;
     box-sizing: border-box;
     h1 {
+      position: relative;
       color: var(--Dark-color);
-    font-weight: 700;
-    margin-bottom: 45px;
+      font-weight: 600;
+      left: 10px;
+      margin-top: 10px;
+      margin-bottom: 45px;
+      font-size: 24px;
     }
     &__input-field {
       display: flex;
       flex-direction: column;
       position: relative;
       padding: 0 10px 0 10px;
-      p{
-          margin-bottom: 20px;
-          margin-top: -10px;
-          font-size: 14px;
-          color: var(--Dark-color);
+      p {
+        margin-bottom: 20px;
+        margin-top: -10px;
+        font-size: 14px;
+        color: var(--Dark-color);
       }
     }
     &__input {
@@ -56,40 +60,39 @@
     .container__input-field .container__input:valid {
       border-bottom: 1px solid var(--Gray-color);
     }
-    
-    .axel{
-        position: absolute;
-        top: 100%;
-        right: 10px;
-        left: 10px;
-        &__submit {
-          width: 100%;
+
+    .axel {
+      position: absolute;
+      top: 110%;
+      right: 10px;
+      left: 10px;
+      &__submit {
+        width: 100%;
+        color: #000;
+        font-weight: 300;
+        font-size: 1rem;
+        padding: 0.8em 0;
+        background: var(--Main-color);
+        border: none;
+        border-radius: 0.2em;
+        cursor: pointer;
+        transition: 0.4s;
+      }
+      .endo {
+        text-align: center;
+        font-size: small;
+        margin-top: 25px;
+        &__enlace {
+          text-decoration: none;
+          font-weight: 700;
           color: #000;
-          font-weight: 300;
-          font-size: 1rem;
-          padding: 0.8em 0;
-          background: var(--Main-color);
-          border: none;
-          border-radius: 0.2em;
-          cursor: pointer;
-          transition: 0.4s;
-        }
-        .endo {
-          text-align: center;
-          font-size: small;
-          margin-top: 25px;
-          &__enlace {
-            text-decoration: none;
-            font-weight: 700;
-            color: #000;
-            transition: 0.5s;
-            &:hover {
-              text-decoration: underline;
-              color: #357dbd;
-            }
+          transition: 0.5s;
+          &:hover {
+            text-decoration: underline;
+            color: #357dbd;
           }
         }
-    
       }
+    }
   }
 }

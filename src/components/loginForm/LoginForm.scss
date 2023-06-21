@@ -10,9 +10,13 @@
     width: 100%;
     box-sizing: border-box;
     h1 {
-        color: var(--Dark-color);
-      font-weight: 700;
+      position: relative;
+      color: var(--Dark-color);
+      font-weight: 600;
+      left: 10px;
+      margin-top: 10px;
       margin-bottom: 45px;
+      font-size: 24px;
     }
   }
   &__input-field {
@@ -58,7 +62,7 @@
   }
   .action{
     position: absolute;
-    top: 175%;
+    top: 200%;
     right: 10px;
     left: 10px;
     &__submit {
