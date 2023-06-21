@@ -22,7 +22,7 @@
   align-items: center;
   &__iconHome {
     color: var(--Dark-color);
-    font-size: 30px;
+    font-size: 40px;
     &:hover {
       transition: 0.5s;
       cursor: pointer;
@@ -38,7 +38,7 @@
   gap: 5px;
   align-items: center;
   &__iconSearch {
-    font-size: 30px;
+    font-size: 40px;
     color: var(--Dark-color);
     &:hover {
       transition: 0.5s;
@@ -55,7 +55,7 @@
   gap: 5px;
   align-items: center;
   &__iconHistory {
-    font-size: 30px;
+    font-size: 40px;
     color: var(--Dark-color);
     &:hover {
       transition: 0.5s;
@@ -72,7 +72,7 @@
   gap: 5px;
   align-items: center;
   &__iconPerson {
-    font-size: 30px;
+    font-size: 40px;
     color: var(--Dark-color);
     &:hover {
       transition: 0.5s;
@@ -86,3 +86,23 @@
   transition: 0.5s;
   color: var(--Main-color);
 }
+.active-circle {
+  position: relative;
+  width: 7px;
+  height: 7px;
+  background-color: var(--Main-color);
+  border-radius: 50%;
+  top: 20px;
+  left: -53%;
+}
+
+// .active-circle {
+//   position: absolute;
+//   bottom: -7px;
+//   left: 50%;
+//   transform: translateX(-50%);
+//   width: 20px;
+//   height: 20px;
+//   background-color: yellow;
+//   border-radius: 50%;
+// }

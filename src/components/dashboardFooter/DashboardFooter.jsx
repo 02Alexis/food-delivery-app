@@ -10,7 +10,7 @@ import classnames from "classnames";
 import "./DashboardFooter.scss";
 
 const DashboardFooter = () => {
-    const [activeIcon, setActiveIcon] = React.useState("");
+  const [activeIcon, setActiveIcon] = React.useState("");
   const navigate = useNavigate();
 
   const handleHomeClick = () => {
@@ -18,7 +18,7 @@ const DashboardFooter = () => {
   };
 
   const handleSearchClick = () => {
-    // navigate("/search"); 
+    // navigate("/search");
     navigate("/search");
   };
   const handleHistoryClick = () => {
@@ -29,7 +29,6 @@ const DashboardFooter = () => {
     navigate("/dashboard");
   };
 
-  
   useEffect(() => {
     // Lógica para establecer el icono activo cuando cambia la ruta actual
     const currentPath = window.location.pathname;
@@ -40,7 +39,7 @@ const DashboardFooter = () => {
     } else if (currentPath === "/dashboard") {
       setActiveIcon("dashboard");
     } else if (currentPath === "/history") {
-        setActiveIcon("history");
+      setActiveIcon("history");
     }
   }, []);
 
@@ -50,24 +49,41 @@ const DashboardFooter = () => {
         <div className="footerHome">
           <MdOutlineHome
             onClick={handleHomeClick}
-            className={classnames("footerHome__iconHome", { active: activeIcon === "home"})}
+            className={classnames("footerHome__iconHome", {
+              active: activeIcon === "home",
+            })}
           />
+          {activeIcon === "home" && <div className="active-circle" />}
         </div>
 
         <div className="footerSearch">
           <MdSearch
             onClick={handleSearchClick}
-            className={classnames("footerSearch__iconSearch",  {active: activeIcon === "search" })} />
+            className={classnames("footerSearch__iconSearch", {
+              active: activeIcon === "search",
+            })}
+          />
+          {activeIcon === "search" && <div className="active-circle" />}
         </div>
 
         <div className="footerHistory">
           <MdOutlineHistory
-          onClick={handleHistoryClick} className={classnames("footerHistory__iconHistory", {active: activeIcon === "history"})} />
+            onClick={handleHistoryClick}
+            className={classnames("footerHistory__iconHistory", {
+              active: activeIcon === "history",
+            })}
+          />
+          {activeIcon === "history" && <div className="active-circle" />}
         </div>
 
         <div className="footerPerson">
-          <MdOutlinePersonOutline 
-          onClick={handleDashboardClick} className={classnames("footerPerson__iconPerson", { active: activeIcon === "dashboard" })} />
+          <MdOutlinePersonOutline
+            onClick={handleDashboardClick}
+            className={classnames("footerPerson__iconPerson", {
+              active: activeIcon === "dashboard",
+            })}
+          />
+          {activeIcon === "dashboard" && <div className="active-circle" />}
         </div>
       </footer>
     </>
