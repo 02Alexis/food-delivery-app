@@ -4,12 +4,14 @@ import { actionGetRestaurantsAsync } from "../../redux/actions/restaurantActions
 import "./Home.scss";
 import DashboardFooter from "../../components/dashboardFooter/DashboardFooter";
 import { MdStarRate } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Ubication from "../../components/ubication/Ubication";
 import FilterFoods from "../../components/filterFoods/FilterFoods";
+import { getRestaurantById } from "../../redux/actions/restaurantActions";
 
 function Home() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { restaurants } = useSelector((store) => store.restaurantsStore);
 
   useEffect(() => {
@@ -19,25 +21,28 @@ function Home() {
   return (
     <>
       <div className="home">
-      <Ubication />
-      <FilterFoods />
+        <Ubication />
+        <FilterFoods />
         {restaurants && restaurants.length ? (
           restaurants.map((restaurant, index) => (
             <div key={index} className="container">
-              <Link to={`/restaurant/${restaurant.id}`}>
               <img
+                onClick={() => {
+                  dispatch(getRestaurantById(restaurant.id));
+                  navigate(`/restaurant/${restaurant.id}`);
+                }}
                 className="container__img"
                 src={restaurant.imagen}
                 alt={restaurant.nombre}
               />
-              </Link>
               <div className="details">
                 <p className="details__name">{restaurant.nombre}</p>
                 <div className="details__start">
                   {restaurant.calificacion.map((rating, index) => (
                     <MdStarRate
-                    key={index}
-                    className={rating === 6 ? "star red" : "star yellow"} />
+                      key={index}
+                      className={rating === 6 ? "star red" : "star yellow"}
+                    />
                   ))}
                 </div>
                 <p className="details__worktime">

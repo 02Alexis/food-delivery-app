@@ -27,27 +27,31 @@ export const actionGetRestaurantsAsync = () => {
   };
 };
 
-// export const getRestaurantById = (id) => {
-//   return async (dispatch) => {
-//     const restaurantsCollection = collection(dataBase, collectionName);
-//     const documentRef = doc(restaurantsCollection, id);
-//     let querySnapshot;
-//     try {      
-//       querySnapshot = await getDoc(documentRef);
-//     } catch (error) {
-//       console.error(error);
-//     } finally {
-//       dispatch(actionGetRestaurantByIdSync(querySnapshot));
-//     }
-//   };
-// };
+export const getRestaurantById = (id) => {
+  return async (dispatch) => {
+    const restaurantsCollection = collection(dataBase, collectionName);
+    const documentRef = doc(restaurantsCollection, id);
+    let restaurante={};
+    try {      
+      const querySnapshot = await getDoc(documentRef);
+      restaurante = {
+        id: querySnapshot.id,
+        ...querySnapshot.data()
+      };
+    } catch (error) {
+      console.error(error);
+    } finally {
+      dispatch(actionGetRestaurantByIdSync(restaurante));
+    }
+  };
+};
 
-// const actionGetRestaurantByIdSync = (querySnapshot) => {
-//   return {
-//     type: restaurantsTypes.RESTAURANT_SELECTED,
-//     payload: querySnapshot,
-//   };
-// };
+const actionGetRestaurantByIdSync = (restaurant) => {
+  return {
+    type: restaurantsTypes.RESTAURANT_SELECTED,
+    payload: restaurant,
+  };
+};
 
 const actionGetRestaurantsSync = (restaurants) => {
   return {
