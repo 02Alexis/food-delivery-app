@@ -25,7 +25,7 @@ function Home() {
         {restaurants && restaurants.length ? (
           restaurants.map((restaurant, index) => (
             <div key={index} className="container">
-              <Link to={`/restaurant/${restaurant.nombre}`}>
+              <Link to={`/restaurant/${restaurant.id}`}>
               <img
                 className="container__img"
                 src={restaurant.imagen}

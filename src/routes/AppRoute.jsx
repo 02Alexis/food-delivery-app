@@ -64,7 +64,7 @@ function AppRoute() {
           </Route>
           <Route element={<PrivateRoute isAutentication={isLoggedIn} />}>
             <Route path="home" element={<Home />} />
-            <Route path="restaurant/:nombre" element={<RestaurantPage />} />
+            <Route path="restaurant/:id" element={<RestaurantPage />} />
             <Route path="search" element={<Search />} />
             <Route path="history" element={<OrdersHistory />} />
             <Route path="dashboard" element={<Dashboard />} />

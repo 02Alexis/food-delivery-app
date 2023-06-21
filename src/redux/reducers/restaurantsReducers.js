@@ -2,6 +2,7 @@ import { restaurantsTypes } from "../types/userTypes";
 
 const initialState = {
   restaurants: [],
+  selectedRestaurant:  {}
 };
 
 export const restaurantsReducer = (state = initialState, action) => {
@@ -11,16 +12,21 @@ export const restaurantsReducer = (state = initialState, action) => {
         ...state,
         restaurants: action.payload.restaurants,
       };
-    case restaurantsTypes.RESTAURANT_ADD:
+    // case restaurantsTypes.RESTAURANT_ADD:
+    //   return {
+    //     ...state,
+    //     restaurants: [...state.restaurants, action.payload],
+    //   };
+    // case restaurantsTypes.RESTAURANT_FILTERED:
+    //   return {
+    //     ...state,
+    //     restaurants: action.payload.restaurants,
+    //   };
+    case restaurantsTypes.RESTAURANT_SELECTED:
       return {
         ...state,
-        restaurants: [...state.restaurants, action.payload],
-      };
-    case restaurantsTypes.RESTAURANT_FILTERED:
-      return {
-        ...state,
-        restaurants: action.payload.restaurants,
-      };
+        selectedRestaurant: action.payload
+      }
     default:
       return state;
   }

@@ -1,6 +1,7 @@
-import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
+import { addDoc, collection, getDocs, query, where, getDoc, doc } from "firebase/firestore";
 import { dataBase } from "../../Firebase/firebaseConfig";
 import { restaurantsTypes } from "../types/userTypes";
+import {restaurantsReducer} from '../reducers/restaurantsReducers'
 
 const collectionName = "restaurant";
 
@@ -25,6 +26,28 @@ export const actionGetRestaurantsAsync = () => {
     }
   };
 };
+
+// export const getRestaurantById = (id) => {
+//   return async (dispatch) => {
+//     const restaurantsCollection = collection(dataBase, collectionName);
+//     const documentRef = doc(restaurantsCollection, id);
+//     let querySnapshot;
+//     try {      
+//       querySnapshot = await getDoc(documentRef);
+//     } catch (error) {
+//       console.error(error);
+//     } finally {
+//       dispatch(actionGetRestaurantByIdSync(querySnapshot));
+//     }
+//   };
+// };
+
+// const actionGetRestaurantByIdSync = (querySnapshot) => {
+//   return {
+//     type: restaurantsTypes.RESTAURANT_SELECTED,
+//     payload: querySnapshot,
+//   };
+// };
 
 const actionGetRestaurantsSync = (restaurants) => {
   return {
