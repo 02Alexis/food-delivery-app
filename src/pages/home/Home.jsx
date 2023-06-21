@@ -11,7 +11,6 @@ import FilterFoods from "../../components/filterFoods/FilterFoods";
 function Home() {
   const dispatch = useDispatch();
   const { restaurants } = useSelector((store) => store.restaurantsStore);
-  console.log("restaurante ", restaurants);
 
   useEffect(() => {
     dispatch(actionGetRestaurantsAsync());

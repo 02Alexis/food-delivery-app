@@ -27,7 +27,6 @@ function LoginForm() {
   });
 
   const logIn = (dataForm) => {
-    console.log(dataForm);
     dispatch(loginActionAsync(dataForm.email, dataForm.password));
   };
 

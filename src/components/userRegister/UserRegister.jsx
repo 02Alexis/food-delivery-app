@@ -53,7 +53,6 @@ function UserRegister() {
       ...dataForm,
       avatar: avatar,
     };
-    console.log(newUser);
     dispatch(registerActionAsync(newUser));
   };
 

@@ -23,7 +23,6 @@ function AppRoute() {
   const dispatch = useDispatch();
 
   const { user } = useSelector((store) => store.user);
-  console.log(user);
 
   useEffect(() => {
     onAuthStateChanged(auth, (userLogged) => {
@@ -31,7 +30,6 @@ function AppRoute() {
         setIsLoggedIn(true);
 
         if (!Object.entries(user).length) {
-          console.log("No hay info");
           const logged = {
             email: userLogged.auth.currentUser.email,
             name: userLogged.auth.currentUser.displayName,
@@ -40,8 +38,6 @@ function AppRoute() {
           };
           dispatch(loginActionSync(logged));
         }
-
-        console.log(userLogged);
       } else {
         setIsLoggedIn(false);
       }
