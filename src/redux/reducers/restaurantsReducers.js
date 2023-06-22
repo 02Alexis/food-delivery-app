@@ -4,6 +4,7 @@ const initialState = {
   restaurants: [],
   searchResults: [],
   selectedRestaurant: {},
+  platos: [],
 };
 
 export const restaurantsReducer = (state = initialState, action) => {
@@ -23,6 +24,12 @@ export const restaurantsReducer = (state = initialState, action) => {
         ...state,
         selectedRestaurant: action.payload,
       };
+    case restaurantsTypes.GET_RESTAURANT_DISHES:
+      return {
+        ...state,
+        platos: action.payload,
+      };
+
     default:
       return state;
   }

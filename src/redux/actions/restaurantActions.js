@@ -1,9 +1,17 @@
-import { addDoc, collection, getDocs, query, where, getDoc, doc } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  getDocs,
+  query,
+  where,
+  getDoc,
+  doc,
+} from "firebase/firestore";
 import { dataBase } from "../../Firebase/firebaseConfig";
 import { restaurantsTypes } from "../types/userTypes";
-import {restaurantsReducer} from '../reducers/restaurantsReducers'
 
 const collectionName = "restaurant";
+const collectionNamePlatos = "platos";
 
 export const actionGetRestaurantsAsync = () => {
   return async (dispatch) => {
@@ -25,16 +33,55 @@ export const actionGetRestaurantsAsync = () => {
   };
 };
 
+const actionGetRestaurantsSync = (restaurants) => {
+  return {
+    type: restaurantsTypes.RESTAURANT_GET,
+    payload: {
+      restaurants: restaurants,
+    },
+  };
+};
+//###########
+
+export const getRestaurantDishes = (idRestaurant) => {
+  return async (dispatch) => {
+    const platosCollection = collection(dataBase, collectionNamePlatos);
+    const querySnapshot = await getDocs(query(platosCollection, where("idRestaurantes", "==", idRestaurant)));
+    const platos = [];
+    try {
+      querySnapshot.forEach((doc) => {
+        platos.push({
+          id: doc.id,
+          ...doc.data(),
+        });
+      });
+
+      dispatch(actionGetRestaurantDishes(platos));
+    } catch (error) {
+      console.error(error);
+    }
+  };
+};
+
+
+const actionGetRestaurantDishes = (platos) => {
+  return {
+    type: restaurantsTypes.GET_RESTAURANT_DISHES,
+    payload: platos,
+  };
+};
+
+
 export const getRestaurantById = (id) => {
   return async (dispatch) => {
     const restaurantsCollection = collection(dataBase, collectionName);
     const documentRef = doc(restaurantsCollection, id);
-    let restaurante={};
-    try {      
+    let restaurante = {};
+    try {
       const querySnapshot = await getDoc(documentRef);
       restaurante = {
         id: querySnapshot.id,
-        ...querySnapshot.data()
+        ...querySnapshot.data(),
       };
     } catch (error) {
       console.error(error);
@@ -48,15 +95,6 @@ const actionGetRestaurantByIdSync = (restaurant) => {
   return {
     type: restaurantsTypes.RESTAURANT_SELECTED,
     payload: restaurant,
-  };
-};
-
-const actionGetRestaurantsSync = (restaurants) => {
-  return {
-    type: restaurantsTypes.RESTAURANT_GET,
-    payload: {
-      restaurants: restaurants,
-    },
   };
 };
 
