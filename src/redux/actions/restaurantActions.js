@@ -60,32 +60,20 @@ const actionGetRestaurantsSync = (restaurants) => {
   };
 };
 
-// export const actionFilterRestaurantsAsync = (searchParam, searchValue) => {
-//   return async (dispatch) => {
-//     const restaurantsCollection = collection(dataBase, collectionName);
-//     const q = query(restaurantsCollection, where(searchParam, "==", searchValue));
-//     const restaurants = [];
-//     try {
-//       const querySnapshot = await getDocs(q);
-//       querySnapshot.forEach((doc) => {
-//         restaurants.push({
-//           id: doc.id,
-//           ...doc.data(),
-//         });
-//       });
-//     } catch (error) {
-//       console.log(error);
-//     } finally {
-//       dispatch(actionFilterRestaurantsSync(restaurants));
-//     }
-//   };
-// };
+// Agrega esto a tu archivo restaurantActions.js
 
-// const actionFilterRestaurantsSync = (restaurants) => {
-//   return {
-//     type: restaurantsTypes.RESTAURANT_FILTERED,
-//     payload: {
-//       restaurants: restaurants,
-//     },
-//   };
-// };
+export const searchRestaurants = (searchTerm) => {
+  return (dispatch, getState) => {
+    const { restaurants } = getState().restaurantsStore;
+
+    // Realizar la búsqueda de restaurantes por nombre
+    const searchResults = restaurants.filter((restaurant) =>
+      restaurant.nombre.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
+    dispatch({
+      type: restaurantsTypes.SEARCH_RESTAURANTS,
+      payload: searchResults,
+    });
+  };
+};
