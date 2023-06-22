@@ -4,10 +4,11 @@ import { actionGetRestaurantsAsync } from "../../redux/actions/restaurantActions
 import "./Home.scss";
 import DashboardFooter from "../../components/dashboardFooter/DashboardFooter";
 import { MdStarRate } from "react-icons/md";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Ubication from "../../components/ubication/Ubication";
 import FilterFoods from "../../components/filterFoods/FilterFoods";
 import { getRestaurantById } from "../../redux/actions/restaurantActions";
+import Promo from "../../components/promo/Promo";
 
 function Home() {
   const dispatch = useDispatch();
@@ -22,6 +23,7 @@ function Home() {
     <>
       <div className="home">
         <Ubication />
+        <Promo />
         <FilterFoods />
         {restaurants && restaurants.length ? (
           restaurants.map((restaurant, index) => (

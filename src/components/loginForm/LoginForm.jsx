@@ -6,6 +6,8 @@ import { useDispatch } from "react-redux";
 import { loginActionAsync } from "../../redux/actions/userActions";
 import { Link } from "react-router-dom";
 import "./LoginForm.scss";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const schema = yup.object({
   email: yup

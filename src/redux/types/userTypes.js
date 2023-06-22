@@ -14,3 +14,6 @@ export const platosTypes = {
   PLATOS_GET: 'PLATOS_GET',
   PLATOSRESTAURANTE_GET: 'PLATOSRESTAURANTE_GET' 
 }
+export const buttonsTypes = {
+  BUTTON__GET: 'BUTTON__GET',
+}

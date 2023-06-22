@@ -1,40 +1,67 @@
-import React, { useEffect } from 'react'
-import { MdKeyboardArrowLeft } from "react-icons/md";
-import { Link } from 'react-router-dom';
-import "./InfoRestaurant.scss"
-import { useDispatch, useSelector } from 'react-redux';
-import { getPlatosRestaurantsAsync } from '../../redux/actions/platosActions';
+import React, { useEffect } from "react";
+import { MdKeyboardArrowLeft, MdStarRate } from "react-icons/md";
+import { Link } from "react-router-dom";
+import "./InfoRestaurant.scss";
+import { useDispatch, useSelector } from "react-redux";
+import { getPlatosRestaurantsAsync } from "../../redux/actions/platosActions";
 
 function InfoRestaurant() {
-
-
   const dispatch = useDispatch();
-  const {
-    platos,
-    restaurantsStore,
-  } = useSelector((store) => store);
+  const { platos, restaurantsStore } = useSelector((store) => store);
 
   useEffect(() => {
-    // dispatch(getPlatosRestaurantsAsync("idRestaurantes"))
+    if (restaurantsStore.selectedRestaurant) {
+      dispatch(
+        getPlatosRestaurantsAsync(restaurantsStore.selectedRestaurant.id)
+      );
+    }
+  }, [dispatch, restaurantsStore.selectedRestaurant]);
 
-    console.log(restaurantsStore.selectedRestaurant);
-
-    
-  }, []);
   return (
     <>
-    <Link to="/home/">
-    <MdKeyboardArrowLeft />
-    </Link>
+      <Link to="/home/">
+        <MdKeyboardArrowLeft className="iconArrow" />
+      </Link>
 
-    <div>aqui va el restaurante que seleccionastes {restaurantsStore.selectedRestaurant.nombre} </div>
-    <img src={restaurantsStore.selectedRestaurant.imagen} alt="" />
-    <p> {restaurantsStore.selectedRestaurant.comentarios} </p>
+      {restaurantsStore.selectedRestaurant && (
+        <div className="contenedor">
+          <img
+            className="restaurant"
+            src={restaurantsStore.selectedRestaurant.imagen}
+            alt=""
+          />
+          <div className="contenido">
+            <h1>{restaurantsStore.selectedRestaurant.nombre}</h1>
+            <p>{restaurantsStore.selectedRestaurant.comentarios}</p>
+            <div className="calificacion">
+                  {restaurantsStore.selectedRestaurant.calificacion.map((rating, index) => (
+                    <MdStarRate
+                      key={index}
+                      className={rating === 6 ? "star white" : "star yellow"}
+                    />
+                  ))}
+                </div>
+          </div>
+        </div>
+      )}
+
+      {platos && platos.length > 0 && (
+        <div>
+          {/* Renderiza los platos relacionados con el restaurante seleccionado */}
+          {platos.map((plato) => (
+            <div key={plato.id}>
+              <p>{plato.nombre}</p>
+              <p>{plato.descripcion}</p>
+              {/* ...otros campos */}
+            </div>
+          ))}
+        </div>
+      )}
     </>
-  )
+  );
 }
 
-export default InfoRestaurant
+export default InfoRestaurant;
 
 // import React, { useEffect, useState } from "react";
 // import { MdKeyboardArrowLeft } from "react-icons/md";
@@ -49,11 +76,9 @@ export default InfoRestaurant
 //   const {id} = useParams();
 //   const { selectedRestaurant } = useSelector((store) => store.restaurantsStore);
 
-  
 //   useEffect(() => {
-//     dispatch(getRestaurantById(id))   
+//     dispatch(getRestaurantById(id))
 //   }, [])
-  
 
 //   return (
 //     <>

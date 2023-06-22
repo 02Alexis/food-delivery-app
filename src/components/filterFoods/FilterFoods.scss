@@ -46,6 +46,10 @@
       width: 100px;
       height: 40px;
       margin-right: 10px;
+      &:hover{
+        transition: .5s;
+        background: var(--Main-color);
+      }
     }
   }
 }

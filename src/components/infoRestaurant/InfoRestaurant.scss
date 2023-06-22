@@ -1,12 +1,57 @@
-.infoRestaurant {
-  padding: 10px;
-  &__logo {
-    display: flex;
-    align-items: center;
+.iconArrow {
+  display: flex;
+  align-items: center;
+  color: var(--Dark-color);
+  font-size: 40px;
+}
+
+.contenedor {
+  display: flex;
+  align-items: center;
+  color: var(--Dark-color);
+  margin-top: 45px;
+
+  img {
+    width: 150px;
+    height: 140px;
+    object-fit: cover;
     transition: 0.5s;
-    .image {
-      display: block;
-      margin: auto;
+    border: none;
+    border-radius: 20px 20px 50% 20px / 20px 20px 80% 20px;
+  }
+
+  .contenido {
+    margin-left: 20px;
+    h1 {
+      color: var(--Dark-color);
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 24px;
+      @media screen and (max-width: 600px) {
+        font-size: 14px; // Tamaño de la descripción en ventanas pequeñas
+      }
+    }
+    .calificacion {
+      color: var(--Main-color);
+      .star.white {
+        color: var(--Gray-color);
+      }
+
+      .star.yellow {
+        color: var(--Main-color);
+      }
     }
   }
+
+  // .restaurant{
+  //   cursor: pointer;
+  //     width: 200px;
+  //     height: 150px;
+  //     object-fit: cover;
+  //     transition: .5s;
+  //     border: none;
+  //     border-radius: 20px 20px 50% 20px / 20px 20px 80% 20px;
+  //   }
 }

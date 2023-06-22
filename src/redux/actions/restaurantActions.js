@@ -12,12 +12,10 @@ export const actionGetRestaurantsAsync = () => {
     const restaurants = [];
     try {
       querySnapshot.forEach((doc) => {
-        // doc.data() is never undefined for query doc snapshots
         restaurants.push({
           id: doc.id,
           ...doc.data(),
         });
-        //   console.log(doc.id, " => ", doc.data());
       });
     } catch (error) {
       console.error(error);
