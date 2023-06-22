@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import "./FilterFoods.scss";
+import { category } from "../../services/data";
 
 function FilterFoods() {
     const carouselRef = useRef(null);
@@ -37,9 +38,12 @@ function FilterFoods() {
           onMouseUp={handleMouseUp}
           onMouseLeave={handleMouseUp}>
           <button className="yelow">All</button>
-          <button>Fast Food</button>
-          <button>Pizza</button>
-          <button>Pizza</button>
+          {category.map((item) => (
+            <button key={item.id}>
+              <img src={item.img} alt={item.name} />
+              {item.name}
+            </button>
+          ))}
         </div>
       </div>
     </>

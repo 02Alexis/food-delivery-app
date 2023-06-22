@@ -35,8 +35,8 @@ function FilterButton() {
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseUp}>
         <button className="yelow">All</button>
-        <button>Fast Food</button>
-        <button>Pizza</button>
+        <button>Ensaladas</button>
+        <button>Espaecialidad</button>
         <button>Pizza</button>
       </div>
     </div>

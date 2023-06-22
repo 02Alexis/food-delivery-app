@@ -34,13 +34,15 @@ function InfoRestaurant() {
             <h1>{restaurantsStore.selectedRestaurant.nombre}</h1>
             <p>{restaurantsStore.selectedRestaurant.comentarios}</p>
             <div className="calificacion">
-                  {restaurantsStore.selectedRestaurant.calificacion.map((rating, index) => (
-                    <MdStarRate
-                      key={index}
-                      className={rating === 6 ? "star white" : "star yellow"}
-                    />
-                  ))}
-                </div>
+              {restaurantsStore.selectedRestaurant.calificacion.map(
+                (rating, index) => (
+                  <MdStarRate
+                    key={index}
+                    className={rating === 6 ? "star white" : "star yellow"}
+                  />
+                )
+              )}
+            </div>
           </div>
         </div>
       )}
