@@ -60,8 +60,6 @@ const actionGetRestaurantsSync = (restaurants) => {
   };
 };
 
-// Agrega esto a tu archivo restaurantActions.js
-
 export const searchRestaurants = (searchTerm) => {
   return (dispatch, getState) => {
     const { restaurants } = getState().restaurantsStore;
