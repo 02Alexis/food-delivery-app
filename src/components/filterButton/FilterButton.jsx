@@ -37,7 +37,7 @@ function FilterButton() {
         <button className="yelow">All</button>
         <button>Ensaladas</button>
         <button>Espaecialidad</button>
-        <button>Pizza</button>
+        <button>Postres</button>
       </div>
     </div>
   </>
