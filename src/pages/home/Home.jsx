@@ -9,6 +9,7 @@ import Ubication from "../../components/ubication/Ubication";
 import FilterFoods from "../../components/filterFoods/FilterFoods";
 import { getRestaurantById } from "../../redux/actions/restaurantActions";
 import Promo from "../../components/promo/Promo";
+import { ToastContainer } from "react-toastify";
 
 function Home() {
   const dispatch = useDispatch();
@@ -58,6 +59,8 @@ function Home() {
         )}
       </div>
       <DashboardFooter />
+      
+      <ToastContainer />
     </>
   );
 }
