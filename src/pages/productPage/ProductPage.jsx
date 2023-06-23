@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import "./ProductPage.scss";
 import { useNavigate } from "react-router-dom";
+import { addToCart } from "../../redux/actions/restaurantActions";
 
 function ProductPage() {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const platoSeleccionado = useSelector(
     (store) => store.restaurantsStore.platoSeleccionado
@@ -84,6 +86,7 @@ function ProductPage() {
         </div>
 
         <div className="add-section" onClick={() => {
+          dispatch(addToCart(platoSeleccionado.imagen, platoSeleccionado.nombre, precioBase + platoSeleccionado.precio));
           navigate(`/ordes`)
         }}>
           <button className="add-btn">Add</button>

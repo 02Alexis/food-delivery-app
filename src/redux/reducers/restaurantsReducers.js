@@ -6,6 +6,7 @@ const initialState = {
   selectedRestaurant: {},
   platos: [],
   platoSeleccionado: [],
+  cart: [],
 };
 
 export const restaurantsReducer = (state = initialState, action) => {
@@ -35,6 +36,12 @@ export const restaurantsReducer = (state = initialState, action) => {
       return {
         ...state,
         platoSeleccionado: action.payload,
+      };
+
+    case restaurantsTypes.ADD_TO_CART:
+      return {
+        ...state,
+        cart: [...state.cart, action.payload],
       };
 
     default:

@@ -41,7 +41,7 @@ function PaymentButton() {
         {payment.map((item) => (
           <button key={item.id}>
             <img src={item.img} alt={item.service} />
-            {item.name}
+            {item.service}
           </button>
         ))}
       </div>

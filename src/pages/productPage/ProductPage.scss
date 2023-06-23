@@ -45,7 +45,7 @@
         width: 16px;
         height: 16px;
         border-radius: 4px;
-        background-color: var(--Gray-color);
+        background-color: var(--Complementary-color);
         cursor: pointer;
 
         &:checked {
@@ -74,7 +74,7 @@
   .quantity-section {
     display: flex;
     align-items: center; 
-    background-color: var(--Gray-color);
+    background-color: var(--Complementary-color);
     border-radius: 5px;
     margin-top: 20px;
     padding: 20px;

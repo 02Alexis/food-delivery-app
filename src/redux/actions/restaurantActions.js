@@ -123,6 +123,17 @@ const actionGetDishDetailsSync = (plato) => {
   };
 };
 
+export const addToCart = (image, name, price) => {
+  return {
+    type: restaurantsTypes.ADD_TO_CART,
+    payload: {
+      image,
+      name,
+      price,
+    },
+  };
+};
+
 
 export const searchRestaurants = (searchTerm) => {
   return (dispatch, getState) => {
