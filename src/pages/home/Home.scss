@@ -59,6 +59,7 @@
               }
             }
             &__name{
+              color: var(--Dark-color);
                 font-size: 18px;
                 font-weight: bold;
                 margin-bottom: 5px;
@@ -66,6 +67,7 @@
               &__worktime{
                 font-size: 14px;
                 margin-bottom: 5px;
+                color: var(--Dark-color);
                 }
             &__start{
                 color: var(--Main-color);
