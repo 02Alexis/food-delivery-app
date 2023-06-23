@@ -9,7 +9,9 @@ function ProductPage() {
   const [ingredientesSeleccionados, setIngredientesSeleccionados] = useState(
     []
   );
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
+  const [precioBase, setPrecioBase] = useState(0);
+  const [precio, setPrecio] = useState(platoSeleccionado.precio);
 
   const handleIncrease = () => {
     setQuantity(quantity + 1);
@@ -22,20 +24,25 @@ function ProductPage() {
   };
 
   const handleCheckboxChange = (event, ingrediente) => {
-    if (event.target.checked) {
+    const ingredientePrecio = platoSeleccionado.ingredientes[ingrediente];
+    const isChecked = event.target.checked;
+
+    if (isChecked) {
       setIngredientesSeleccionados([...ingredientesSeleccionados, ingrediente]);
+      setPrecioBase(precioBase + ingredientePrecio);
     } else {
       const updatedIngredientes = ingredientesSeleccionados.filter(
         (selectedIngrediente) => selectedIngrediente !== ingrediente
       );
       setIngredientesSeleccionados(updatedIngredientes);
+      setPrecioBase(precioBase - ingredientePrecio);
     }
   };
 
   const ingredientesList = platoSeleccionado?.ingredientes
     ? Object.entries(platoSeleccionado.ingredientes).map(([clave, valor]) => (
         <li key={clave}>
-          <label>
+          <label onChange={(e) => handleCheckboxChange(e, clave)}>
             <input
               type="checkbox"
               value={clave}
@@ -76,7 +83,10 @@ function ProductPage() {
 
         <div className="add-section">
           <button className="add-btn">Add</button>
-          <span className="price">{platoSeleccionado.precio}</span>
+          {/* <span className="price">Base Price: {precioBase}</span> */}
+          <span className="price">
+            {precioBase + platoSeleccionado.precio}
+          </span>
         </div>
       </div>
     </div>

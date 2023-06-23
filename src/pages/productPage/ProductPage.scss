@@ -68,10 +68,12 @@
     }
   }
   .buttons {
-    display: flex; /* Agregado */
-    align-items: center; /* Agregado */
+    display: flex;
+    align-items: center; 
   }
   .quantity-section {
+    display: flex;
+    align-items: center; 
     background-color: var(--Gray-color);
     border-radius: 5px;
     margin-top: 20px;
