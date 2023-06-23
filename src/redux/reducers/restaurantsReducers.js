@@ -1,10 +1,11 @@
-import { restaurantsTypes } from "../types/userTypes";
+import { platosTypes, restaurantsTypes } from "../types/userTypes";
 
 const initialState = {
   restaurants: [],
   searchResults: [],
   selectedRestaurant: {},
   platos: [],
+  platoSeleccionado: [],
 };
 
 export const restaurantsReducer = (state = initialState, action) => {
@@ -28,6 +29,12 @@ export const restaurantsReducer = (state = initialState, action) => {
       return {
         ...state,
         platos: action.payload,
+      };
+
+    case platosTypes.PLATOS_GET:
+      return {
+        ...state,
+        platoSeleccionado: action.payload,
       };
 
     default:

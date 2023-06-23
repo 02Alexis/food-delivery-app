@@ -8,7 +8,7 @@ import {
   doc,
 } from "firebase/firestore";
 import { dataBase } from "../../Firebase/firebaseConfig";
-import { restaurantsTypes } from "../types/userTypes";
+import { platosTypes, restaurantsTypes } from "../types/userTypes";
 
 const collectionName = "restaurant";
 const collectionNamePlatos = "platos";
@@ -41,7 +41,6 @@ const actionGetRestaurantsSync = (restaurants) => {
     },
   };
 };
-//###########
 
 export const getRestaurantDishes = (idRestaurant) => {
   return async (dispatch) => {
@@ -98,11 +97,38 @@ const actionGetRestaurantByIdSync = (restaurant) => {
   };
 };
 
+export const getDishDetails = (dishId) => {
+  return async (dispatch) => {
+    const platosCollection = collection(dataBase, collectionNamePlatos);
+    const documentRef = doc(platosCollection, dishId);
+    let plato = {};
+    try {
+      const querySnapshot = await getDoc(documentRef);
+      plato = {
+        id: querySnapshot.id,
+        ...querySnapshot.data(),
+      };
+    } catch (error) {
+      console.error(error);
+    } finally {
+      dispatch(actionGetDishDetailsSync(plato));
+    }
+  };
+};
+
+const actionGetDishDetailsSync = (plato) => {
+  return {
+    type: platosTypes.PLATOS_GET,
+    payload: plato,
+  };
+};
+
+
 export const searchRestaurants = (searchTerm) => {
   return (dispatch, getState) => {
     const { restaurants } = getState().restaurantsStore;
 
-    // Realizar la búsqueda de restaurantes por nombre
+    // Realizamos la búsqueda de restaurantes por nombre
     const searchResults = restaurants.filter((restaurant) =>
       restaurant.nombre.toLowerCase().includes(searchTerm.toLowerCase())
     );
