@@ -44,3 +44,31 @@
     }
   }
 }
+
+.search__contenedor{
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  width: 300px; 
+
+  img {
+    border-radius: 5px;
+    width: 44px;
+    height: 44px;
+    margin-right: 10px;
+  }
+  .infoSearch {
+    flex: 1;
+
+    h3 {
+      color: var(--Dark-color);
+      font-size: 14px;
+      margin: 0;
+    }
+    p {
+      color: var(--Gray-color);
+      font-size: 14px;
+      margin: 0;
+    }
+  }
+}

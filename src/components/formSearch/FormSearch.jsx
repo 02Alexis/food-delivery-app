@@ -36,20 +36,19 @@ function FormSearch() {
         </div>
       </div>
 
-      <div>
-        <div>
-          {searchResults.length > 0 ? (
-            searchResults.map((restaurant, index) => (
-              <div key={index}>
-                <h3>{restaurant.nombre}</h3>
-                {/* Mostrar más detalles del restaurante si es necesario */}
-              </div>
-            ))
-          ) : (
-            <p>No restaurants found.</p>
-          )}
-        </div>
-      </div>
+      {searchResults.length > 0 ? (
+        searchResults.map((restaurant, index) => (
+          <div className="search__contenedor" key={index}>
+            <img src={restaurant.imagen} alt={restaurant.nombre} />
+            <div className="infoSearch">
+              <h3>{restaurant.nombre}</h3>
+              <p>{restaurant.horario.join(" - ")}</p>
+            </div>
+          </div>
+        ))
+      ) : (
+        <p>No restaurants found.</p>
+      )}
     </>
   );
 }

@@ -5,14 +5,13 @@
   grid-row-gap: 30px;
   margin-top: 15px;
 
-
   @media (max-width: 372px) {
     grid-template-columns: 1fr; // Cambia a una sola columna
   }
   @media (min-width: 500px) {
     grid-template-columns: repeat(3, 1fr); // Cambia a cinco columnas
   }
-  
+
   @media (min-width: 700px) {
     grid-template-columns: repeat(5, 1fr); // Cambia a cinco columnas
   }
@@ -21,7 +20,7 @@
 .image {
   img {
     width: 154px; // La imagen se ajustará al ancho del contenedor
-    height: 110px; 
+    height: 110px;
     border-radius: 15px;
     cursor: pointer;
   }
@@ -38,4 +37,29 @@
   margin-top: 6px;
   font-weight: 400;
   font-size: 14px;
+}
+
+.search-bar {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--Complementary-color);
+  .search__icon {
+    transition: 0.5s;
+    font-size: 22px;
+    color: var(--Gray-color);
+    cursor: pointer;
+  }
+}
+input[type="text"] {
+  padding: 10px;
+  width: 300px;
+  border: none;
+  background: transparent;
+
+  color: var(--Gray-color);
+  &:focus {
+    outline: none;
+  }
 }
