@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import "./ProductPage.scss";
+import { useNavigate } from "react-router-dom";
 
 function ProductPage() {
+  const navigate = useNavigate();
   const platoSeleccionado = useSelector(
     (store) => store.restaurantsStore.platoSeleccionado
   );
@@ -81,7 +83,9 @@ function ProductPage() {
           </button>
         </div>
 
-        <div className="add-section">
+        <div className="add-section" onClick={() => {
+          navigate(`/ordes`)
+        }}>
           <button className="add-btn">Add</button>
           {/* <span className="price">Base Price: {precioBase}</span> */}
           <span className="price">

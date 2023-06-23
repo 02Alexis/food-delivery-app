@@ -16,6 +16,7 @@ import Search from "../pages/search/Search";
 import RestaurantPage from "../pages/restaurantPage/RestaurantPage";
 import OrdersHistory from "../pages/ordersHistory/OrdersHistory";
 import ProductPage from "../pages/productPage/ProductPage";
+import Ordes from "../pages/ordes/Ordes";
 
 function AppRoute() {
   const [isLoggedIn, setIsLoggedIn] = useState(null);
@@ -63,6 +64,7 @@ function AppRoute() {
             <Route path="home" element={<Home />} />
             <Route path="restaurant/:id" element={<RestaurantPage />} />
             <Route path="productPage/:id" element={<ProductPage />} />
+            <Route path="ordes" element={<Ordes />} />
             <Route path="search" element={<Search />} />
             <Route path="history" element={<OrdersHistory />} />
             <Route path="dashboard" element={<Dashboard />} />
