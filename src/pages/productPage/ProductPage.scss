@@ -5,34 +5,111 @@
     height: auto;
   }
   h1 {
-    font-size: 24px;
-    margin: 10px 0;
+    font-size: 20px;
+    margin: 10px;
+    font-weight: 400;
+    color: var(--Dark-color);
   }
 
   p {
-    font-size: 16px;
+    font-size: 14px;
     margin: 10px 0;
+    font-weight: 300;
+    color: var(--Dark-color);
+  }
+  .gray {
+    color: var(--Gray-color);
   }
 
-  ul {
-    list-style-type: none;
+  .ingredientesList {
+    list-style: none;
     padding: 0;
 
     li {
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    label {
+      font-size: 14px;
+      color: var(--Dark-color);
       display: flex;
       align-items: center;
-      margin-bottom: 5px;
 
-      input[type="checkbox"] {
-        margin-right: 10px;
+      input {
+        margin-right: 8px;
+        appearance: none;
+        position: relative;
+        width: 16px;
+        height: 16px;
+        border-radius: 4px;
+        background-color: var(--Gray-color);
+        cursor: pointer;
+
+        &:checked {
+          background-color: yellow; // Cambia el color de fondo del checkbox a amarillo
+        }
+
+        &:checked:before {
+          content: "";
+          position: absolute;
+          color: var(--Dark-color);
+          top: 0;
+          left: 5px;
+          width: 3px;
+          height: 8px;
+          border: solid black;
+          border-width: 0 2px 2px 0;
+          transform: rotate(45deg);
+        }
       }
-      label {
-        font-size: 14px;
-      }
-      span {
-        margin-left: auto;
-        font-size: 14px;
-      }
+    }
+  }
+  .buttons {
+    display: flex; /* Agregado */
+    align-items: center; /* Agregado */
+  }
+  .quantity-section {
+    background-color: var(--Gray-color);
+    border-radius: 5px;
+    margin-top: 20px;
+    padding: 20px;
+    width: 133px;
+    margin-right: 20px;
+
+    .quantity-btn {
+      background: transparent;
+      font-size: 20px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .quantity {
+      font-size: 18px;
+      margin: 0 10px;
+    }
+  }
+  .add-section {
+    width: 209px;
+    margin-top: 20px;
+    background: var(--Main-color);
+    border-radius: 5px;
+    padding: 20px;
+
+    .add-btn {
+      background: transparent;
+      font-size: 14px;
+      color: var(--Dark-color);
+      border: none;
+      cursor: pointer;
+    }
+
+    .price {
+      color: var(--Dark-color);
+      font-size: 20px;
+      margin-left: 80px;
     }
   }
 }
