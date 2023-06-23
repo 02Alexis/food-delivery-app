@@ -21,16 +21,14 @@ function ProductPage() {
     }
   };
 
-  const handleCheckboxChange = (event, ingrediente, valor) => {
+  const handleCheckboxChange = (event, ingrediente) => {
     if (event.target.checked) {
       setIngredientesSeleccionados([...ingredientesSeleccionados, ingrediente]);
-      setQuantity(quantity + valor);
     } else {
       const updatedIngredientes = ingredientesSeleccionados.filter(
         (selectedIngrediente) => selectedIngrediente !== ingrediente
       );
       setIngredientesSeleccionados(updatedIngredientes);
-      setQuantity(quantity - valor);
     }
   };
 
@@ -42,9 +40,8 @@ function ProductPage() {
               type="checkbox"
               value={clave}
               checked={ingredientesSeleccionados.includes(clave)}
-              onChange={(e) => handleCheckboxChange(e, clave, 500)}
+              onChange={(e) => handleCheckboxChange(e, clave)}
             />
-
             {`${clave}: ${valor}`}
           </label>
         </li>

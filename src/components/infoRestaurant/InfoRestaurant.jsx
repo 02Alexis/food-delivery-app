@@ -6,7 +6,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { getRestaurantDishes } from "../../redux/actions/restaurantActions";
 
 function InfoRestaurant() {
-  const { selectedRestaurant, platos } = useSelector((store) => store.restaurantsStore);
+  const { selectedRestaurant, platos } = useSelector(
+    (store) => store.restaurantsStore
+  );
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -27,14 +29,15 @@ function InfoRestaurant() {
         <div className="contenido">
           <h1>{selectedRestaurant.nombre}</h1>
           <p>{selectedRestaurant.comentarios}</p>
-          {/* <div className="calificacion">
-            {selectedRestaurant.calificacion.map((calificacion, index) => (
-              <MdStarRate
-                key={index}
-                className={calificacion === 6 ? "star white" : "star yellow"}
-              />
-            ))}
-          </div> */}
+          <div className="calificacion">
+            {selectedRestaurant.calificacion &&
+              selectedRestaurant.calificacion.map((calificacion, index) => (
+                <MdStarRate
+                  key={index}
+                  className={calificacion === 6 ? "star white" : "star yellow"}
+                />
+              ))}
+          </div>
         </div>
       </div>
     </>
