@@ -134,6 +134,13 @@ export const addToCart = (image, name, price) => {
   };
 };
 
+export const removeFromCart = (productId) => {
+  return {
+    type: restaurantsTypes.REMOVE_FROM_CART,
+    payload: productId,
+  };
+};
+
 
 export const searchRestaurants = (searchTerm) => {
   return (dispatch, getState) => {

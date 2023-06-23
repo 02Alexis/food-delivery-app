@@ -43,6 +43,14 @@ export const restaurantsReducer = (state = initialState, action) => {
         ...state,
         cart: [...state.cart, action.payload],
       };
+    case restaurantsTypes.REMOVE_FROM_CART:
+      const updatedCart = state.cart.filter(
+        (item) => item.id !== action.payload
+      );
+      return {
+        ...state,
+        cart: updatedCart,
+      };
 
     default:
       return state;

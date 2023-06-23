@@ -15,6 +15,7 @@ function Home() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { restaurants } = useSelector((store) => store.restaurantsStore);
+  const cart = useSelector((store) => store.restaurantsStore.cart);
 
   useEffect(() => {
     dispatch(actionGetRestaurantsAsync());
@@ -57,9 +58,22 @@ function Home() {
         ) : (
           <></>
         )}
+
+        <p>
+          {cart.reduce((total, item) => total + item.price, 0) > 0 && (
+            <div className="product-price">
+              <span className="quantity">{cart.length}</span>
+              <span className="view-card">View Card</span>
+              <span className="price">
+                {cart.reduce((total, item) => total + item.price, 0)}
+              </span>
+            </div>
+          )}
+        </p>
       </div>
+
       <DashboardFooter />
-      
+
       <ToastContainer />
     </>
   );

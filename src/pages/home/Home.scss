@@ -1,84 +1,134 @@
-.home{
-    transition: .5s;min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
+.home {
+  transition: 0.5s;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
 
-    .container{
+  .container {
     margin-left: -20px;
-        display: flex;
-        align-items: center;
-        transition: .5s;
-        margin-bottom: -45px;
-        &__img{
-          cursor: pointer;
-            padding: 30px;
-            width: 200px;
-            height: 150px;
-            object-fit: cover;
-            transition: .5s;
-            border: none;
-            border-radius: 20px 20px 50% 20px / 20px 20px 80% 20px;
+    display: flex;
+    align-items: center;
+    transition: 0.5s;
+    margin-bottom: -45px;
+    &__img {
+      cursor: pointer;
+      padding: 30px;
+      width: 200px;
+      height: 150px;
+      object-fit: cover;
+      transition: 0.5s;
+      border: none;
+      border-radius: 20px 20px 50% 20px / 20px 20px 80% 20px;
 
-            opacity: 0; /* Establecer la opacidad inicial en 0 */
-            animation-name: fadeIn; /* Nombre de la animación */
-            animation-duration: 0.5s; /* Duración de la animación en segundos */
-            animation-timing-function: ease-in; /* Función de temporización de la animación */
-            animation-fill-mode: forwards; /* Mantener el estado final de la animación */
-            @keyframes fadeIn {
-              0% {
-                opacity: 0;
-                transform: translateY(10px); /* Animación de desplazamiento hacia abajo */
-              }
-              100% {
-                opacity: 1;
-                transform: translateY(0); /* Animación de desplazamiento hacia arriba */
-              }
-            }
-            &:hover {
-                transform: scale(1.1);
-              }
-          }
-        .details{
-            display: flex;
-            flex-direction: column;
-
-            opacity: 0; /* Establecer la opacidad inicial en 0 */
-            animation-name: fadeIn; /* Nombre de la animación */
-            animation-duration: 0.5s; /* Duración de la animación en segundos */
-            animation-timing-function: ease-in; /* Función de temporización de la animación */
-            animation-fill-mode: forwards; /* Mantener el estado final de la animación */
-            @keyframes fadeIn {
-              0% {
-                opacity: 0;
-                transform: translateY(10px); /* Animación de desplazamiento hacia abajo */
-              }
-              100% {
-                opacity: 1;
-                transform: translateY(0); /* Animación de desplazamiento hacia arriba */
-              }
-            }
-            &__name{
-              color: var(--Dark-color);
-                font-size: 18px;
-                font-weight: bold;
-                margin-bottom: 5px;
-              }
-              &__worktime{
-                font-size: 14px;
-                margin-bottom: 5px;
-                color: var(--Dark-color);
-                }
-            &__start{
-                color: var(--Main-color);
-                .star.red {
-                    color: var(--Gray-color);
-                  }
-                  
-                  .star.yellow {
-                    color: var(--Main-color);
-                  }
-            }
+      opacity: 0; /* Establecer la opacidad inicial en 0 */
+      animation-name: fadeIn; /* Nombre de la animación */
+      animation-duration: 0.5s; /* Duración de la animación en segundos */
+      animation-timing-function: ease-in; /* Función de temporización de la animación */
+      animation-fill-mode: forwards; /* Mantener el estado final de la animación */
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(
+            10px
+          ); /* Animación de desplazamiento hacia abajo */
         }
+        100% {
+          opacity: 1;
+          transform: translateY(
+            0
+          ); /* Animación de desplazamiento hacia arriba */
+        }
+      }
+      &:hover {
+        transform: scale(1.1);
+      }
     }
+    .details {
+      display: flex;
+      flex-direction: column;
+
+      opacity: 0; /* Establecer la opacidad inicial en 0 */
+      animation-name: fadeIn; /* Nombre de la animación */
+      animation-duration: 0.5s; /* Duración de la animación en segundos */
+      animation-timing-function: ease-in; /* Función de temporización de la animación */
+      animation-fill-mode: forwards; /* Mantener el estado final de la animación */
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(
+            10px
+          ); /* Animación de desplazamiento hacia abajo */
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(
+            0
+          ); /* Animación de desplazamiento hacia arriba */
+        }
+      }
+      &__name {
+        color: var(--Dark-color);
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+      &__worktime {
+        font-size: 14px;
+        margin-bottom: 5px;
+        color: var(--Dark-color);
+      }
+      &__start {
+        color: var(--Main-color);
+        .star.red {
+          color: var(--Gray-color);
+        }
+
+        .star.yellow {
+          color: var(--Main-color);
+        }
+      }
+    }
+  }
+  .product-price {
+    color: var(--Dark-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 80%;
+    left: 0;
+    width: 400px;
+    margin-left: 10px;
+    background: var(--Main-color);
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.4s;
+
+    .quantity {
+      font-size: 14px;
+      border-radius: 0.2em;
+      text-align: center;
+      width: 20px;
+      background: var(--Dark-color);
+
+      color: var(--Complementary-color);
+      margin-right: 10px;
+    }
+
+    .view-card {
+      font-size: 14px;
+      flex-grow: 1;
+      text-align: center;
+    }
+
+    .price {
+      font-size: 14px;
+      color: var(--Dark-color);
+      margin-left: 10px;
+    }
+  }
 }

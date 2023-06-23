@@ -4,11 +4,13 @@ import "./Ordes.scss";
 import Ubication from "../../components/ubication/Ubication";
 import PaymentButton from "../../components/paymentButton/PaymentButton";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { toast } from "react-toastify";
+import { removeFromCart } from "../../redux/actions/restaurantActions";
 
 function Ordes() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const cart = useSelector((store) => store.restaurantsStore.cart);
 
   const [cantidad, setCantidad] = useState(1);
@@ -17,11 +19,13 @@ function Ordes() {
     setCantidad(cantidad + 1);
   };
 
-  const decrementarCantidad = () => {
+  const decrementarCantidad = (itemId) => {
     if (cantidad > 1) {
       setCantidad(cantidad - 1);
+    } else {
+      dispatch(removeFromCart(itemId)); // Elimina el producto del carrito
     }
-  };
+  }
 
   const calcularPrecioTotal = () => {
     let total = 0;
@@ -57,7 +61,7 @@ function Ordes() {
             <img className="image" src={item.image} alt={item.name} />
 
             <div className="cantidad">
-              <button className="boton" onClick={decrementarCantidad}>
+              <button className="boton" onClick={() => decrementarCantidad(item.id)}>
                 -
               </button>
               <span>{cantidad}</span>
