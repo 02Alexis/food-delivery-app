@@ -17,6 +17,7 @@ import RestaurantPage from "../pages/restaurantPage/RestaurantPage";
 import OrdersHistory from "../pages/ordersHistory/OrdersHistory";
 import ProductPage from "../pages/productPage/ProductPage";
 import Ordes from "../pages/ordes/Ordes";
+import Spinner from 'react-bootstrap/Spinner';
 
 function AppRoute() {
   const [isLoggedIn, setIsLoggedIn] = useState(null);
@@ -48,7 +49,7 @@ function AppRoute() {
   }, [user, dispatch]);
 
   if (loading) {
-    return <h4>wait moment, loading...</h4>;
+    return <Spinner animation="grow" variant="success" />;
   }
 
   return (
