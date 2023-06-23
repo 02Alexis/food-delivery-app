@@ -3,13 +3,17 @@ import { useSelector, useDispatch } from "react-redux";
 import { searchRestaurants } from "../../redux/actions/restaurantActions";
 import { MdSearch } from "react-icons/md";
 import "./FormSearch.scss";
+import { useNavigate } from "react-router-dom";
+import { getRestaurantById } from "../../redux/actions/restaurantActions";
 
 function FormSearch() {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const [searchTerm, setSearchTerm] = useState("");
   const { restaurants, searchResults } = useSelector(
     (store) => store.restaurantsStore
   );
-  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(searchRestaurants(searchTerm));
@@ -39,7 +43,14 @@ function FormSearch() {
       {searchResults.length > 0 ? (
         searchResults.map((restaurant, index) => (
           <div className="search__contenedor" key={index}>
-            <img src={restaurant.imagen} alt={restaurant.nombre} />
+            <img
+              src={restaurant.imagen}
+              alt={restaurant.nombre}
+              onClick={() => {
+                dispatch(getRestaurantById(restaurant.id));
+                navigate(`/restaurant/${restaurant.id}`);
+              }}
+            />
             <div className="infoSearch">
               <h3>{restaurant.nombre}</h3>
               <p>{restaurant.horario.join(" - ")}</p>
